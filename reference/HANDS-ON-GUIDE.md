@@ -1,14 +1,25 @@
-# EPS - TOT (Angular) Hands-On Guide
+# Hands-On Guide
 
 This guide supports the 2-day Angular training.
 
 ## Day 1: Routing & Modules
+
+### Session 1: Welcome & Setup
+
+Refer to [SETUP-AND-INSTALLATION.md](SETUP-AND-INSTALLATION.md) file
+
+### Session 2: Angular Fundamentals
+
+### Session 3: Services & RxJS
+
 ### Session 4: Lazy Loading, Guards & Navigation
 
 **Goal:** Implement lazy loading for the Courses module and protect it with an AuthGuard.
 
 #### 1. Lazy Loading Configuration
+
 Open `src/app/app-routing.module.ts`:
+
 ```typescript
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,7 +32,9 @@ const routes: Routes = [
 ```
 
 #### 2. Auth Guard Implementation
+
 Open `src/app/core/auth.guard.ts`:
+
 ```typescript
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
@@ -38,12 +51,15 @@ export class AuthGuard implements CanActivate {
 ```
 
 ## Day 2: Authentication & Forms
+
 ### Session 5: Authentication & Interceptors
 
 **Goal:** Implement JWT token handling.
 
 #### 1. Auth Interceptor
+
 Open `src/app/core/auth.interceptor.ts`:
+
 ```typescript
 intercept(req: HttpRequest<any>, next: HttpHandler) {
   const token = this.auth.getToken();
@@ -60,7 +76,9 @@ intercept(req: HttpRequest<any>, next: HttpHandler) {
 **Goal:** Create a registration form with validation.
 
 #### 1. Registration Component
+
 Open `src/app/registration/registration.component.ts`:
+
 ```typescript
 export class RegistrationComponent {
   form!: FormGroup;
@@ -83,12 +101,15 @@ export class RegistrationComponent {
 ```
 
 ## Day 2: Debugging & Testing
+
 ### Session 7: Unit Testing with Jasmine
 
 **Goal:** Test the User Service.
 
 #### 1. User Service Test
+
 Open `src/app/core/user.service.spec.ts`:
+
 ```typescript
 it('should fetch users via GET', () => {
   const mockUsers = [{ id: 1, name: 'John' }];
@@ -105,11 +126,15 @@ it('should fetch users via GET', () => {
 ```
 
 ## Build & Deployment
+
 Run the following commands to build for production:
+
 ```bash
 ng build --configuration=production
 ```
+
 Analyze bundle size:
+
 ```bash
 ng build --stats-json && webpack-bundle-analyzer dist/stats.json
 ```

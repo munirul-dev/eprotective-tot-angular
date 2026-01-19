@@ -1,9 +1,11 @@
-# EPS - TOT (Angular) Setup Guide
+# Setup and Installation
 
 ## Prerequisites
 
-- Node.js (v18 or later) [https://nodejs.org/en/download]()
-- Angular CLI (`npm install -g @angular/cli`)
+* [ ] Visual Studio Code - [https://code.visualstudio.com/Download]()
+* [ ] Node.js (v18 or later) [https://nodejs.org/en/download]()
+* [ ] Angular CLI (`npm install -g @angular/cli`)
+* [ ] Clone Project Repository
 
 ## Installation
 

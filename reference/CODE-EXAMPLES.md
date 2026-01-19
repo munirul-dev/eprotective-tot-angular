@@ -1,4 +1,4 @@
-# Code Examples - EPS TOT (Angular)
+# Code Examples
 
 Reference snippets for the key concepts covered in the training.
 
