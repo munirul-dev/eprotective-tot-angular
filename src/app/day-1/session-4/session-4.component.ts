@@ -15,4 +15,8 @@ export class Session4Component {
   toggleGuard() {
     this.authGuard.toggleAuth();
   }
+
+  get isAuth(): boolean {
+    return this.authGuard.isLoggedIn();
+  }
 }

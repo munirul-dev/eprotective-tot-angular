@@ -26,4 +26,8 @@ export class AuthGuard implements CanActivate {
     this.isAuthenticated = !this.isAuthenticated;
     alert(`User is now ${this.isAuthenticated ? 'Authenticated' : 'Not Authenticated'}`);
   }
+
+  isLoggedIn(): boolean {
+    return this.isAuthenticated;
+  }
 }

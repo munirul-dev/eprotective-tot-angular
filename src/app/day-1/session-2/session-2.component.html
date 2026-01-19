@@ -1,14 +1,16 @@
 <div class="session-container">
   <h2>{{ title }}</h2>
-  <p>In this session, we cover the core building blocks of Angular.</p>
+  <div class="card">
+    <p>In this session, we cover the core building blocks of Angular.</p>
+  </div>
 
-  <hr>
+  <div class="card">
+    <h3>1. Data Binding</h3>
+    <app-data-binding></app-data-binding>
+  </div>
 
-  <!-- Data Binding Section -->
-  <app-data-binding></app-data-binding>
-
-  <hr>
-
-  <!-- Directives Section -->
-  <app-directives></app-directives>
+  <div class="card">
+    <h3>2. Directives</h3>
+    <app-directives></app-directives>
+  </div>
 </div>

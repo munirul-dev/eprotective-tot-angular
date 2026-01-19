@@ -1,9 +1,4 @@
-.session-container {
-  padding: 20px;
-  background-color: var(--bg-card);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-}
+/* Relies on global .session-container and .card styles */
 
 .control-panel {
     margin-bottom: 20px;
@@ -34,8 +29,22 @@
     }
 }
 
-hr {
-  margin: 2rem 0;
-  border: 0;
-  border-top: 1px solid var(--border-color);
+.status-badge {
+    margin-left: 15px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+
+    &.locked {
+        background-color: rgba(244, 67, 54, 0.2);
+        color: #e57373;
+        border: 1px solid rgba(244, 67, 54, 0.3);
+    }
+
+    &.unlocked {
+        background-color: rgba(76, 175, 80, 0.2);
+        color: #81c784;
+        border: 1px solid rgba(76, 175, 80, 0.3);
+    }
 }
