@@ -1,0 +1,18 @@
+<div class="session-container">
+  <h2>{{ title }}</h2>
+  <p>This session covers Feature Modules, Lazy Loading, Child Routes, and Guards.</p>
+
+  <div class="control-panel">
+    <button (click)="toggleGuard()">Toggle Auth Guard State</button>
+  </div>
+
+  <nav class="inner-nav">
+    <a routerLink="detail/1" routerLinkActive="active">Go to Item 1 (Protected)</a>
+    <a routerLink="detail/42" routerLinkActive="active">Go to Item 42 (Protected)</a>
+  </nav>
+
+  <hr>
+
+  <!-- Router Outlet for Child Routes (DetailComponent) -->
+  <router-outlet></router-outlet>
+</div>

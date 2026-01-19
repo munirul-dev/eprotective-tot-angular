@@ -1,0 +1,31 @@
+<section>
+  <h3>1. Data Binding</h3>
+
+  <div class="example-box">
+    <h4>Interpolation {{ '{' + '{' }} variable {{ '}' + '}' }}</h4>
+    <p>Course Name: <strong>{{ courseName }}</strong></p>
+    <p>Evaluated Expression: 1 + 1 = <strong>{{ 1 + 1 }}</strong></p>
+  </div>
+
+  <div class="example-box">
+    <h4>Property Binding [property]="variable"</h4>
+    <img [src]="imageUrl" alt="Angular Logo" width="50">
+    <br><br>
+    <button [disabled]="isButtonDisabled">I am {{ isButtonDisabled ? 'Disabled' : 'Enabled' }}</button>
+  </div>
+
+  <div class="example-box">
+    <h4>Event Binding (event)="handler()"</h4>
+    <button (click)="onButtonClick()">Click Me</button>
+    <br><br>
+    <!-- Simple input event demo -->
+    <input type="text" placeholder="Type something..." (input)="onInput($event)">
+  </div>
+
+  <div class="example-box">
+    <h4>Two-Way Binding [(ngModel)]="variable"</h4>
+    <p><i>Requires FormsModule to be imported in the module.</i></p>
+    <input type="text" [(ngModel)]="username">
+    <p>Hello, <strong>{{ username }}</strong>!</p>
+  </div>
+</section>

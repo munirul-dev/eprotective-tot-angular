@@ -2,19 +2,11 @@
 
 ## Prerequisites
 
-* [ ] Visual Studio Code - [https://code.visualstudio.com/Download]()
-* [ ] Node.js (v18 or later) [https://nodejs.org/en/download]()
-* [ ] Git - [https://git-scm.com/install/]()
+* [ ] Visual Studio Code - [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)
+* [ ] Node.js (v18 or later) [https://nodejs.org/en/download](https://nodejs.org/en/download)
+* [ ] Git (optional) - [https://git-scm.com/install](https://git-scm.com/install)
 * [ ] Angular CLI (`npm install -g @angular/cli`)
-* [ ] Clone Project Repository
-
-## Installation
-
-1. Clone the repository or extract the project.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+* [ ] Clone / Download Project Repository
 
 ## Verify Installation
 
@@ -36,6 +28,14 @@ Check Angular version:
 ng --version
 ```
 
+## Installation
+
+1. Clone / download the repository or extract the project.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
 ## Running the Application
 
 Start the development server:
@@ -45,14 +45,6 @@ ng serve
 ```
 
 Navigate to `http://localhost:4200/`.
-
-## Running Tests
-
-Run unit tests:
-
-```bash
-npm test
-```
 
 ## Project Structure
 

@@ -1,0 +1,39 @@
+<section>
+  <h3>2. Directives</h3>
+
+  <div class="example-box">
+    <h4>Structural Directive: *ngIf</h4>
+    <button (click)="toggleVisibility()">
+      {{ isVisible ? 'Hide' : 'Show' }} Message
+    </button>
+
+    <p *ngIf="isVisible" class="alert">
+      You can strictly see this message only if <code>isVisible</code> is true!
+    </p>
+    <p *ngIf="!isVisible">
+      (The message is hidden)
+    </p>
+  </div>
+
+  <div class="example-box">
+    <h4>Structural Directive: *ngFor</h4>
+    <ul>
+      <li *ngFor="let student of students; let i = index">
+        {{ i + 1 }}. <strong>{{ student.name }}</strong> - Score:
+        <!-- Style Binding/Class Binding demo inside loop -->
+        <span [style.color]="getColor(student.score)" [style.fontWeight]="'bold'">
+          {{ student.score }}
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <h4>Attribute Directive: [ngClass]</h4>
+    <p>Use ngClass to conditionally apply CSS classes.</p>
+    <!-- Example usage of ngClass logic in template or controller -->
+    <div *ngFor="let student of students" class="student-card" [ngClass]="{'high-performer': student.score >= 80, 'needs-improvement': student.score < 70}">
+      {{ student.name }} ({{ student.score }})
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section>
+  <h3>Async Pipe & Observables</h3>
+
+  <div class="example-box">
+    <h4>1. Consuming BehavoirSubject</h4>
+    <p>Current User (managed by Service):</p>
+    <!-- The async pipe subscribes and unsubscribes automatically -->
+    <div *ngIf="currentUser$ | async as user" class="user-card">
+      <p>ID: {{ user.id }}</p>
+      <p>Name: <strong>{{ user.name }}</strong></p>
+      <p>Role: {{ user.role }}</p>
+    </div>
+    <button (click)="updateUser()">Update User via Service</button>
+  </div>
+
+  <div class="example-box">
+    <h4>2. Async Data Loading (Simulated HTTP)</h4>
+    <p>List of Courses:</p>
+
+    <!-- Show current state of stream -->
+    <ul *ngIf="courses$ | async as courses; else loading">
+      <li *ngFor="let course of courses">{{ course }}</li>
+    </ul>
+
+    <!-- Template Ref for loading state -->
+    <ng-template #loading>
+      <p class="loading">Loading courses (simulating 2s delay)...</p>
+    </ng-template>
+  </div>
+</section>
