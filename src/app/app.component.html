@@ -1,82 +1,38 @@
-<div class="app-container">
-  <header class="main-header">
-    <h1>Angular Training</h1>
-    <nav>
-      <ul>
-        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-        <li style="margin-left: 20px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 20px;">
-          <strong>Day 1:</strong>
-        </li>
-        <li><a routerLink="/session-1" routerLinkActive="active">Setup</a></li>
-        <li><a routerLink="/session-2" routerLinkActive="active">Fundamentals</a></li>
-        <li><a routerLink="/session-3" routerLinkActive="active">Services</a></li>
-        <li><a routerLink="/session-4" routerLinkActive="active">Routing</a></li>
+<div class="app-layout">
+  <header class="top-nav">
+    <div class="nav-brand">
+      <div class="logo-circle">A</div>
+      <h1>Angular Training</h1>
+    </div>
 
-        <li style="margin-left: 40px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 20px;">
-          <strong>Day 2:</strong>
-        </li>
-        <li><a routerLink="/session-5" routerLinkActive="active">Auth</a></li>
-        <li><a routerLink="/session-6" routerLinkActive="active">Forms</a></li>
-        <li><a routerLink="/session-7" routerLinkActive="active">Testing</a></li>
-        <li><a routerLink="/session-8" routerLinkActive="active">Deploy</a></li>
+    <nav class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <span class="icon">🏠</span> Home
+      </a>
 
-      </ul>
+      <div class="divider"></div>
+
+      <div class="nav-group">
+        <span class="group-label">Day 1</span>
+        <a routerLink="/session-1" routerLinkActive="active" class="nav-item">Setup</a>
+        <a routerLink="/session-2" routerLinkActive="active" class="nav-item">Fundamentals</a>
+        <a routerLink="/session-3" routerLinkActive="active" class="nav-item">Services</a>
+        <a routerLink="/session-4" routerLinkActive="active" class="nav-item">Routing</a>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="nav-group">
+        <span class="group-label">Day 2</span>
+        <a routerLink="/session-5" routerLinkActive="active" class="nav-item">Auth</a>
+        <a routerLink="/session-6" routerLinkActive="active" class="nav-item">Forms</a>
+        <a routerLink="/session-7" routerLinkActive="active" class="nav-item">Testing</a>
+        <a routerLink="/session-8" routerLinkActive="active" class="nav-item">Deploy</a>
+      </div>
     </nav>
   </header>
 
-  <main class="main-content">
+  <main class="content-area">
     <router-outlet></router-outlet>
   </main>
 </div>
-
-<!-- Global Styles for this demo layout -->
-<style>
-  .app-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .main-header {
-    background-color: #1976d2;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .main-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-
-  .main-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-
-  .main-header nav li {
-    margin-left: 20px;
-  }
-
-  .main-header nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-  }
-
-  .main-header nav a:hover,
-  .main-header nav a.active {
-    opacity: 1;
-    text-decoration: underline;
-  }
-
-  .main-content {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-</style>

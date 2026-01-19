@@ -1,32 +1,42 @@
 .form-container {
-    background: #fff;
+    background: var(--bg-card-hover);
     padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     max-width: 500px;
+    border: 1px solid var(--border-color);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
+    color: var(--text-secondary);
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     box-sizing: border-box;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+    }
 
     &.is-invalid {
-        border-color: #dc3545;
+        border-color: #f44336; /* Red error */
     }
 }
+
 
 .invalid-feedback {
     display: block;

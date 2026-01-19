@@ -1,6 +1,6 @@
 .detail-box {
-    border: 2px dashed #795548;
+    border: 2px dashed var(--border-color);
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--bg-card);
     border-radius: 8px;
 }

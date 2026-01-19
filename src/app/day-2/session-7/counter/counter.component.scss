@@ -1,12 +1,14 @@
 .counter-box {
     text-align: center;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 25px;
+    background: var(--bg-card-hover);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     max-width: 300px;
     margin: 0 auto;
+    border: 1px solid var(--border-color);
 }
+
 
 .display {
     font-size: 1.5rem;

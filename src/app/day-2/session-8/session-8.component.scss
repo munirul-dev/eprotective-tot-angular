@@ -1,37 +1,44 @@
 .session-container {
     padding: 20px;
-    background-color: #e0f2f1; /* Light Teal tint */
-    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
 }
 
 hr {
     margin: 2rem 0;
     border: 0;
-    border-top: 1px solid #b2dfdb;
+    border-top: 1px solid var(--border-color);
 }
 
 .info-box {
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background: var(--bg-card-hover);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 
     h3 {
         margin-top: 0;
-        color: #00796b;
+        color: var(--accent-cyan);
     }
 
     pre {
-        background: #f5f5f5;
-        padding: 10px;
-        border-radius: 4px;
+        background: #000;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
     }
     
     code {
-        background: #eee;
-        padding: 2px 5px;
-        border-radius: 3px;
+        background: rgba(255,255,255,0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
         font-family: monospace;
+        color: #e6e6e6;
     }
 }
+

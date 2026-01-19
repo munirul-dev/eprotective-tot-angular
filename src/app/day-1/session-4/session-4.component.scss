@@ -1,7 +1,8 @@
 .session-container {
   padding: 20px;
-  background-color: #fff8e1; /* Light amber/yellowish for distinction */
+  background-color: var(--bg-card);
   border-radius: 8px;
+  border: 1px solid var(--border-color);
 }
 
 .control-panel {
@@ -14,18 +15,21 @@
     
     a {
         text-decoration: none;
-        color: #795548;
+        color: var(--text-secondary);
         padding: 5px 10px;
-        border: 1px solid #795548;
+        border: 1px solid var(--border-color);
         border-radius: 4px;
+        transition: all 0.2s;
 
         &.active {
-            background-color: #795548;
-            color: #fff;
+            background-color: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
         }
 
-        &:hover {
-            opacity: 0.8;
+        &:hover:not(.active) {
+            background-color: var(--bg-card-hover);
+            color: var(--text-primary);
         }
     }
 }
@@ -33,5 +37,5 @@
 hr {
   margin: 2rem 0;
   border: 0;
-  border-top: 1px solid #ffe0b2;
+  border-top: 1px solid var(--border-color);
 }

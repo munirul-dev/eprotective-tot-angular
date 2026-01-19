@@ -1,0 +1,135 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav {
+  background-color: #0f1218; /* Darker header bg */
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .logo-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(90deg, #fff, #aebbf0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+}
+
+.nav-item {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  &.active {
+    color: white;
+    background-color: rgba(63, 81, 181, 0.2); /* Tint of accent blue */
+    font-weight: 600;
+  }
+
+  .icon {
+    font-size: 1.1em;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--border-color);
+  margin: 0 10px;
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  .group-label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: #586075;
+    font-weight: 700;
+    margin-right: 8px;
+    letter-spacing: 0.5px;
+  }
+}
+
+.content-area {
+  flex: 1;
+  background-color: var(--bg-dark);
+  /* Padding is handled by individual components or container */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .top-nav {
+    height: auto;
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .divider {
+    display: none;
+  }
+  
+  .nav-group {
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    border-radius: 8px;
+  }
+}
