@@ -2,7 +2,7 @@
 
 This guide supports the 2-day Angular training.
 
-## Day 1: Routing & Modules
+## Day 1: Foundation & Architecture
 
 ### Session 1: Welcome & Setup
 
@@ -50,9 +50,9 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
-## Day 2: Authentication & Forms
+## Day 2: Advanced Topics & Deployment
 
-### Session 5: Authentication & Interceptors
+### Session 5: Auth & Keycloak
 
 **Goal:** Implement JWT token handling.
 
@@ -71,7 +71,7 @@ intercept(req: HttpRequest<any>, next: HttpHandler) {
 }
 ```
 
-### Session 6: Reactive Forms
+### Session 6: Forms & Validation
 
 **Goal:** Create a registration form with validation.
 
@@ -100,8 +100,6 @@ export class RegistrationComponent {
 }
 ```
 
-## Day 2: Debugging & Testing
-
 ### Session 7: Unit Testing with Jasmine
 
 **Goal:** Test the User Service.
@@ -125,7 +123,7 @@ it('should fetch users via GET', () => {
 });
 ```
 
-## Build & Deployment
+### Session 8: Build & Deploy
 
 Run the following commands to build for production:
 

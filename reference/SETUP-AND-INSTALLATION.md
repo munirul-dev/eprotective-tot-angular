@@ -4,6 +4,7 @@
 
 * [ ] Visual Studio Code - [https://code.visualstudio.com/Download]()
 * [ ] Node.js (v18 or later) [https://nodejs.org/en/download]()
+* [ ] Git - [https://git-scm.com/install/]()
 * [ ] Angular CLI (`npm install -g @angular/cli`)
 * [ ] Clone Project Repository
 
@@ -15,12 +16,32 @@
    npm install
    ```
 
+## Verify Installation
+
+Check node.js version:
+
+```bash
+node -v
+```
+
+Check npm version:
+
+```bash
+npm -v
+```
+
+Check Angular version:
+
+```bash
+ng --version
+```
+
 ## Running the Application
 
 Start the development server:
 
 ```bash
-npm start
+ng serve
 ```
 
 Navigate to `http://localhost:4200/`.
