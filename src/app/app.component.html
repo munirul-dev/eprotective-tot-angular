@@ -3,9 +3,22 @@
     <h1>Angular Training</h1>
     <nav>
       <ul>
-        <li><a routerLink="/session-2" routerLinkActive="active">Session 2: Fundamentals</a></li>
-        <li><a routerLink="/session-3" routerLinkActive="active">Session 3: Services & RxJS</a></li>
-        <li><a routerLink="/session-4" routerLinkActive="active">Session 4: Routing (Module)</a></li>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li style="margin-left: 20px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 20px;">
+          <strong>Day 1:</strong>
+        </li>
+        <li><a routerLink="/session-1" routerLinkActive="active">Setup</a></li>
+        <li><a routerLink="/session-2" routerLinkActive="active">Fundamentals</a></li>
+        <li><a routerLink="/session-3" routerLinkActive="active">Services</a></li>
+        <li><a routerLink="/session-4" routerLinkActive="active">Routing</a></li>
+
+        <li style="margin-left: 40px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 20px;">
+          <strong>Day 2:</strong>
+        </li>
+        <li><a routerLink="/session-5" routerLinkActive="active">Auth</a></li>
+        <li><a routerLink="/session-6" routerLinkActive="active">Forms</a></li>
+        <li><a routerLink="/session-7" routerLinkActive="active">Testing</a></li>
+        <li><a routerLink="/session-8" routerLinkActive="active">Deploy</a></li>
 
       </ul>
     </nav>

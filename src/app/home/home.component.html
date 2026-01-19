@@ -1,0 +1,46 @@
+<div class="schedule-container">
+
+  <!-- Day 1 Column -->
+  <div class="day-column">
+    <div class="day-header">
+      <span class="badge">DAY 1</span>
+      <div>
+        <h2>Foundation & Architecture</h2>
+        <p>8 Hours • 4 Sessions</p>
+      </div>
+    </div>
+
+    <div class="session-list">
+      <div class="session-card" *ngFor="let session of day1Sessions" [routerLink]="session.link">
+        <div class="session-time">{{ session.time }}</div>
+        <div class="session-content">
+          <h3>{{ session.title }}</h3>
+          <p>{{ session.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 Column -->
+  <div class="day-column">
+    <div class="day-header">
+      <span class="badge badge-day2">DAY 2</span>
+      <div>
+        <h2>Advanced Topics & Deployment</h2>
+        <p>8 Hours • 4 Sessions + Workshop</p>
+      </div>
+    </div>
+
+    <div class="session-list">
+      <div class="session-card" *ngFor="let session of day2Sessions" [routerLink]="session.link">
+        <div class="session-time">{{ session.time }}</div>
+        <div class="session-content">
+          <h3>{{ session.title }}</h3>
+          <p>{{ session.desc }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

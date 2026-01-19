@@ -1,0 +1,22 @@
+<div class="session-container">
+  <h2>{{ title }}</h2>
+  <p>This session covers Building for Production, Environments, and Deployment strategies.</p>
+
+  <hr>
+
+  <div class="info-box">
+    <h3>Environment Configuration</h3>
+    <p>Current Environment Variables (Simulated):</p>
+    <pre>
+            {{ envConfig | json }}
+        </pre>
+  </div>
+
+  <div class="info-box">
+    <h3>Build Commands</h3>
+    <ul>
+      <li><code>ng build</code>: Default build.</li>
+      <li><code>ng build --configuration production</code>: Production build (Optimization, Minification).</li>
+    </ul>
+  </div>
+</div>

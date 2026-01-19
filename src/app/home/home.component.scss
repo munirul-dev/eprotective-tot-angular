@@ -1,0 +1,117 @@
+.schedule-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #1a1e26; /* Dark background from image */
+    min-height: 100vh;
+}
+
+.day-column {
+    flex: 1;
+    min-width: 400px;
+    max-width: 600px;
+    background: #0f1218; /* Darker card bg */
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #3f51b5; /* Day 1 accent */
+    padding-bottom: 20px;
+
+    h2 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 5px 0 0;
+        color: #8892b0;
+        font-size: 0.9rem;
+    }
+}
+
+.day-column:last-child .day-header {
+    border-bottom-color: #03a9f4; /* Day 2 accent */
+}
+
+.badge {
+    background: #3f51b5;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.badge-day2 {
+    background: #03a9f4;
+}
+
+.session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.session-card {
+    background: #1e2330;
+    border-left: 4px solid #3f51b5; /* Default Day 1 accent */
+    border-radius: 6px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    &:hover {
+        transform: translateY(-2px);
+        background: #252a3a;
+    }
+}
+
+.day-column:last-child .session-card {
+    border-left-color: #03a9f4; /* Day 2 accent */
+}
+
+.session-time {
+    font-family: monospace;
+    color: #8892b0;
+    font-size: 0.85rem;
+    min-width: 100px;
+}
+
+.session-content {
+    h3 {
+        margin: 0 0 5px;
+        font-size: 1.1rem;
+    }
+    p {
+        margin: 0;
+        color: #8892b0;
+        font-size: 0.9rem;
+    }
+}
+
+.workshop-banner {
+    margin-top: 30px;
+    border: 1px solid #2e7d32;
+    background: rgba(46, 125, 50, 0.1);
+    color: #4caf50;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
