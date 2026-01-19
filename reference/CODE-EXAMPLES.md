@@ -5,7 +5,9 @@ Reference snippets for the key concepts covered in the training.
 ## Session 4: Routing
 
 ### Lazy Loading Route
+
 **File:** `app-routing.module.ts`
+
 ```typescript
 {
   path: 'courses',
@@ -15,7 +17,9 @@ Reference snippets for the key concepts covered in the training.
 ```
 
 ### Auth Guard
+
 **File:** `core/auth.guard.ts`
+
 ```typescript
 canActivate(): boolean {
   if (this.auth.isLoggedIn()) {
@@ -29,7 +33,9 @@ canActivate(): boolean {
 ## Session 5: Authentication
 
 ### HTTP Interceptor
+
 **File:** `core/auth.interceptor.ts`
+
 ```typescript
 intercept(req: HttpRequest<any>, next: HttpHandler) {
   const token = this.auth.getToken();
@@ -44,7 +50,9 @@ intercept(req: HttpRequest<any>, next: HttpHandler) {
 ## Session 6: Forms
 
 ### Reactive Form Setup with Cross-Field Validation
+
 **File:** `registration/registration.component.ts`
+
 ```typescript
 this.form = this.fb.group({
   password: ['', [Validators.required, Validators.minLength(8)]],
@@ -61,7 +69,9 @@ passwordMatch(group: AbstractControl): ValidationErrors | null {
 ## Session 7: Testing
 
 ### Service Unit Test (Jasmine)
+
 **File:** `core/user.service.spec.ts`
+
 ```typescript
 it('should fetch users via GET', () => {
   const mockUsers = [{ id: 1, name: 'John' }];
