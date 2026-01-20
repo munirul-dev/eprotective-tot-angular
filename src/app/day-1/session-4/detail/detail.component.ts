@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailComponent implements OnInit {
   itemId: string | null = null;
+  queryParams: any = {};
 
   constructor(private route: ActivatedRoute) { }
 
@@ -19,6 +20,11 @@ export class DetailComponent implements OnInit {
     // 2. Observable way (reacts to changes while on the same component)
     this.route.paramMap.subscribe(params => {
       this.itemId = params.get('id');
+    });
+
+    // Capture Query Params
+    this.route.queryParams.subscribe(params => {
+      this.queryParams = params;
     });
   }
 }

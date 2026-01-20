@@ -1,0 +1,29 @@
+.posts-list {
+  margin-top: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.post-card {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  
+  h5 {
+    margin: 0 0 5px;
+    color: #333;
+  }
+  
+  p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9em;
+  }
+}
+
+.placeholder-text {
+  margin-top: 15px;
+  font-style: italic;
+  color: #888;
+}

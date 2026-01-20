@@ -17,6 +17,16 @@
     </nav>
   </div>
 
+  <div class="card">
+    <h3>Programmatic Navigation</h3>
+    <p>Using <code>Router.navigate()</code> inside the component class.</p>
+
+    <div class="button-group">
+      <button (click)="goDetail(99)">Go to Item 99</button>
+      <button (click)="goDetailWithQuery()">Item 1 + Query Params</button>
+    </div>
+  </div>
+
   <!-- Router Outlet for Child Routes (DetailComponent) -->
   <router-outlet></router-outlet>
 </div>

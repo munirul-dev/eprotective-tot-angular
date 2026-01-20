@@ -1,0 +1,18 @@
+<section>
+  <h3>HTTP Client & External API</h3>
+  <p>Fetching real data from JSONPlaceholder.</p>
+
+  <button (click)="loadPosts()">Fetch Posts</button>
+
+  <div class="posts-list" *ngIf="posts$ | async as posts; else emptyOrLoading">
+    <div *ngFor="let post of posts | slice:0:5" class="post-card">
+      <h5>{{ post.title }}</h5>
+      <p>{{ post.body | slice:0:100 }}...</p>
+    </div>
+    <p>...and {{ posts.length - 5 }} more.</p>
+  </div>
+
+  <ng-template #emptyOrLoading>
+    <p class="placeholder-text">Click the button to load posts.</p>
+  </ng-template>
+</section>

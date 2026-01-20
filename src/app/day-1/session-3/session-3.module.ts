@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { Session3Component } from './session-3.component';
 import { AsyncObservableComponent } from './async-observable/async-observable.component';
+import { HttpClientDemoComponent } from './http-client-demo/http-client-demo.component';
+import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.component';
 
 const routes: Routes = [
   { path: '', component: Session3Component }
@@ -12,7 +14,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     Session3Component,
-    AsyncObservableComponent
+    AsyncObservableComponent,
+    HttpClientDemoComponent,
+    RxjsOperatorsComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,17 @@
+<section>
+  <h3>RxJS Operators Playground</h3>
+  <p>Learn how to transform and filter streams.</p>
+
+  <div class="example-box">
+    <h4>Map, Filter, Take</h4>
+    <p>Scenario: Emit numbers every 1s, take 10, double them, keep only > 5.</p>
+
+    <button (click)="startStream()">Start Stream</button>
+
+    <div class="stream-output">
+      <div *ngFor="let num of logs" class="stream-item fade-in">
+        {{ num }}
+      </div>
+    </div>
+  </div>
+</section>

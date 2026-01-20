@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 
 @Component({
@@ -10,7 +11,11 @@ import { AuthGuard } from './auth.guard';
 export class Session4Component {
   title = 'Session 4: Routing & Modules';
 
-  constructor(private authGuard: AuthGuard) { }
+  constructor(
+    private authGuard: AuthGuard,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   toggleGuard() {
     this.authGuard.toggleAuth();
@@ -18,5 +23,17 @@ export class Session4Component {
 
   get isAuth(): boolean {
     return this.authGuard.isLoggedIn();
+  }
+
+  goDetail(id: number) {
+    // Navigate relative to the current route
+    this.router.navigate(['detail', id], { relativeTo: this.route });
+  }
+
+  goDetailWithQuery() {
+    this.router.navigate(['detail', 1], {
+      relativeTo: this.route,
+      queryParams: { mode: 'editing', ref: 'newsletter' }
+    });
   }
 }
