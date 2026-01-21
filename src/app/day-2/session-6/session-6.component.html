@@ -8,4 +8,78 @@
   <div class="card">
     <app-reactive-form></app-reactive-form>
   </div>
+
+  <div class="card challenge-card">
+    <div class="card-header">
+      <h3>🔥 Challenge: Form Debugging</h3>
+    </div>
+    <div class="challenge-body">
+      <p>The form below is supposed to submit data, but the button stays disabled even when valid. Can you find out why?</p>
+
+      <div class="broken-form">
+        <!-- Intentionally broken form for visual only -->
+        <div class="fake-input-group">
+          <label>Username</label>
+          <input type="text" value="admin" disabled class="valid">
+          <span class="status-icon">✅</span>
+        </div>
+        <button class="btn btn-disabled" disabled>Submit (Disabled?)</button>
+      </div>
+
+      <div class="hint-box">
+        <details>
+          <summary>Need a hint?</summary>
+          <p>Check if the <code>[disabled]</code> attribute is bound to <code>form.invalid</code> or if there's a typo in the validator name!</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- Challenge 2: Regex Patterns -->
+  <div class="card challenge-card">
+    <div class="card-header">
+      <h3>🔥 Challenge: The Secret Pattern</h3>
+    </div>
+    <div class="challenge-body">
+      <p>Enter the correct "Agent ID" format to unlock the vault. The pattern requires 3 uppercase letters, a dash, and 3 numbers (e.g., ???-???).</p>
+
+      <div class="broken-form">
+        <label>Agent ID</label>
+        <div class="input-with-feedback">
+          <input type="text" [(ngModel)]="agentId" placeholder="Format: AAA-123" [class.valid-border]="isAgentIdValid" [class.invalid-border]="agentId && !isAgentIdValid">
+
+          <span class="feedback-icon" *ngIf="isAgentIdValid">🔓</span>
+          <span class="feedback-icon" *ngIf="agentId && !isAgentIdValid">🔒</span>
+        </div>
+        <small class="hint-text" *ngIf="agentId && !isAgentIdValid">Format invalid. Try "ABC-123"</small>
+        <div class="success-msg" *ngIf="isAgentIdValid">Vault Unlocked!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Challenge 3: Async Mock -->
+  <div class="card challenge-card">
+    <div class="card-header">
+      <h3>🔥 Challenge: Async Availability</h3>
+    </div>
+    <div class="challenge-body">
+      <p>Simulate an Async Validator. Try to find a username that isn't taken. (Blocked: admin, user, guest)</p>
+
+      <div class="broken-form">
+        <label>Choose Username</label>
+        <div class="input-row">
+          <input type="text" [(ngModel)]="username" (keyup.enter)="checkUsername()" placeholder="Type and hit Enter...">
+          <button class="btn btn-primary" (click)="checkUsername()" [disabled]="isChecking || !username">
+            {{ isChecking ? 'Checking...' : 'Check' }}
+          </button>
+        </div>
+
+        <!-- Feedback UI -->
+        <div class="async-feedback">
+          <p *ngIf="usernameStatus === 'valid'" class="valid-text">✅ Username "{{ username }}" is available!</p>
+          <p *ngIf="usernameStatus === 'invalid'" class="invalid-text">❌ Username "{{ username }}" is already taken.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

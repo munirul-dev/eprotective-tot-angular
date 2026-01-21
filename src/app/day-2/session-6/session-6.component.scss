@@ -1,2 +1,184 @@
-/* Relies on global .session-container and .card styles */
+// Local styles for Session 6 (extending global styles)
 
+.session-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+// Challenge Card Styles
+.challenge-card {
+  border-color: #f59e0b; // Amber border for challenge
+  background: rgba(245, 158, 11, 0.05);
+
+  h3 {
+    color: #fcd34d;
+    margin-top: 0;
+  }
+}
+
+.broken-form {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px forced-colors #444; /* fallback */
+  border: 1px dashed #666;
+
+  .fake-input-group {
+    margin-bottom: 1rem;
+    position: relative;
+
+    label {
+      display: block;
+      color: #999;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #10b981; // Green for 'valid'
+      background: #333;
+      color: #fff;
+      opacity: 0.7;
+    }
+
+    .status-icon {
+      position: absolute;
+      right: 10px;
+      top: 32px;
+    }
+  }
+
+  .btn-disabled {
+    width: 100%;
+    padding: 0.75rem;
+    background: #444;
+    color: #888;
+    border: none;
+    border-radius: 6px;
+    cursor: not-allowed;
+  }
+}
+
+.hint-box {
+  summary {
+    cursor: pointer;
+    color: #fcd34d;
+    font-weight: 500;
+  }
+  
+  p {
+    margin-top: 0.5rem;
+    color: #ffd;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+  }
+}
+
+// Challenge 2 & 3 Styles
+.input-with-feedback {
+  position: relative;
+  
+  input {
+    padding-right: 3rem; // Space for icon
+    transition: all 0.2s;
+    
+    &.valid-border {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.05);
+    }
+    
+    &.invalid-border {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.05);
+    }
+  }
+
+  .feedback-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+  }
+}
+
+.hint-text {
+  display: block;
+  margin-top: 0.5rem;
+  color: #ef4444;
+  font-size: 0.85rem;
+}
+
+.success-msg {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.75rem;
+  
+  input { flex: 1; }
+  
+  .btn {
+    width: auto;
+    min-width: 100px;
+  }
+}
+
+.async-feedback {
+  margin-top: 1rem;
+  
+  p {
+    margin: 0;
+    padding: 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    &.valid-text {
+      background: rgba(16, 185, 129, 0.1);
+      color: #34d399;
+    }
+    
+    &.invalid-text {
+      background: rgba(239, 68, 68, 0.1);
+      color: #fca5a5;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

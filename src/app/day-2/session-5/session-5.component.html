@@ -49,6 +49,7 @@
     </div>
 
     <div class="dashboard-content">
+      <!-- Stats Grid -->
       <div class="stat-grid">
         <div class="stat-item">
           <label>Status</label>
@@ -56,7 +57,7 @@
         </div>
         <div class="stat-item">
           <label>Last Login</label>
-          <span class="value">{{ currentUser.lastLogin | date:'medium' }}</span>
+          <span class="value">{{ currentUser.lastLogin | date:'shortTime' }}</span>
         </div>
         <div class="stat-item">
           <label>Email</label>
@@ -64,13 +65,131 @@
         </div>
       </div>
 
-      <div class="secure-area">
-        <h4>🔒 Protected Content</h4>
-        <p>This content is only visible to authenticated users. Unlike client-side hiding, real security requires server-side validation.</p>
-        <div class="code-preview">
-          <code>Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...</code>
+      <!-- Token Inspector Feature -->
+      <div class="feature-section">
+        <div class="feature-header" (click)="toggleTokenInspector()">
+          <h4>🔐 Token Inspector</h4>
+          <span class="toggle-icon">{{ showToken ? '▼' : '▶' }}</span>
+        </div>
+
+        <div class="feature-body" *ngIf="showToken">
+          <p class="description">
+            When you log in, the server gives you a <strong>JSON Web Token (JWT)</strong>.
+            This token is attached to every future request to prove who you are.
+          </p>
+
+          <div class="token-display">
+            <div class="raw-token">
+              <label>Raw Token (Header.Payload.Signature)</label>
+              <code>{{ mockTokenString }}</code>
+            </div>
+
+            <div class="decoded-token" *ngIf="decodedToken">
+              <div class="token-part">
+                <label>Payload (Decoded)</label>
+                <div class="json-view">
+                  <span class="key">sub:</span> <span class="string">"{{ decodedToken.payload.sub }}"</span><br>
+                  <span class="key">name:</span> <span class="string">"{{ decodedToken.payload.name }}"</span><br>
+                  <span class="key">role:</span> <span class="string">"{{ decodedToken.payload.role }}"</span><br>
+                  <span class="key">exp:</span> <span class="number">{{ decodedToken.payload.exp }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Quiz -->
+      <div class="feature-section quiz-section">
+        <h4>🧠 Knowledge Check</h4>
+        <p>Which HTTP Header is typically used to send the Bearer Token?</p>
+
+        <div class="quiz-options">
+          <button class="btn btn-option" [class.selected]="quizAnswer === 'X-Auth-Token'" [class.correct]="quizAnswer === 'X-Auth-Token' && quizResult === 'correct'" [class.incorrect]="quizAnswer === 'X-Auth-Token' && quizResult === 'incorrect'" (click)="checkQuiz('X-Auth-Token')">
+            X-Auth-Token
+          </button>
+
+          <button class="btn btn-option" [class.selected]="quizAnswer === 'Authorization'" [class.correct]="quizAnswer === 'Authorization' && quizResult === 'correct'" [class.incorrect]="quizAnswer === 'Authorization' && quizResult === 'incorrect'" (click)="checkQuiz('Authorization')">
+            Authorization
+          </button>
+
+          <button class="btn btn-option" [class.selected]="quizAnswer === 'Cookie'" [class.correct]="quizAnswer === 'Cookie' && quizResult === 'correct'" [class.incorrect]="quizAnswer === 'Cookie' && quizResult === 'incorrect'" (click)="checkQuiz('Cookie')">
+            Cookie
+          </button>
+        </div>
+
+      </div>
+      <div class="quiz-feedback" *ngIf="quizResult">
+        <p *ngIf="quizResult === 'correct'" class="correct-msg">✅ Correct! The standard header is <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+        <p *ngIf="quizResult === 'incorrect'" class="incorrect-msg">❌ Not quite. While some APIs use custom headers, the standard standard is different.</p>
+      </div>
+    </div>
+
+    <!-- Challenge: Interceptor Request -->
+    <div class="card challenge-card">
+      <div class="card-header">
+        <h3>🔥 Challenge: The Interceptor</h3>
+      </div>
+      <div class="challenge-body">
+        <p>API calls fail without a token. Enable the "Interceptor" to attach the token automatically.</p>
+
+        <div class="interceptor-demo">
+          <div class="toggle-row">
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="hasTokenAttached">
+              <span class="slider round"></span>
+            </label>
+            <span>Attach 'Authorization' Header</span>
+          </div>
+
+          <div class="request-box">
+            <div class="req-line">GET /api/secure-data</div>
+            <div class="req-headers" *ngIf="hasTokenAttached">
+              Authorization: Bearer eyJhbGci...
+            </div>
+          </div>
+
+          <button class="btn btn-primary" (click)="makeSecureRequest()" [disabled]="requestStatus === 'loading'">
+            {{ requestStatus === 'loading' ? 'Sending...' : 'Send Request' }}
+          </button>
+
+          <div class="response-box" *ngIf="requestResponse" [class.success]="requestStatus === 'success'" [class.error]="requestStatus === 'error'">
+            {{ requestResponse }}
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Challenge: Role Guard -->
+    <div class="card challenge-card">
+      <div class="card-header">
+        <h3>🔥 Challenge: Role Guard</h3>
+      </div>
+      <div class="challenge-body">
+        <p>Some routes are protected. You are currently a <strong>{{ currentRole }}</strong>.</p>
+
+        <div class="role-switcher">
+          <button class="btn btn-sm" [class.active]="currentRole === 'User'" (click)="switchRole('User')">User</button>
+          <button class="btn btn-sm" [class.active]="currentRole === 'Manager'" (click)="switchRole('Manager')">Manager</button>
+          <button class="btn btn-sm" [class.active]="currentRole === 'Admin'" (click)="switchRole('Admin')">Admin</button>
+        </div>
+
+        <div class="guard-area">
+          <div class="admin-panel" *ngIf="canAccessAdminPanel; else accessDenied">
+            <h4>👑 Admin Control Panel</h4>
+            <p>ACCESS GRANTED. You have full system control.</p>
+            <button class="btn btn-danger">Delete Database (Fake)</button>
+          </div>
+
+          <ng-template #accessDenied>
+            <div class="access-denied">
+              <h4>⛔ Access Denied</h4>
+              <p>You do not have permission to view this section. Requires: <strong>Admin</strong></p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -1,40 +1,59 @@
 <div class="form-container">
-  <h3>User Registration Form</h3>
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
-    <!-- Full Name -->
-    <div class="form-group">
-      <label>Full Name</label>
-      <input type="text" formControlName="fullName" [ngClass]="{ 'is-invalid': submitted && f['fullName'].errors }" />
-      <div *ngIf="submitted && f['fullName'].errors" class="invalid-feedback">
-        <div *ngIf="f['fullName'].errors['required']">Full Name is required</div>
-        <div *ngIf="f['fullName'].errors['minlength']">Full Name must be at least 3 characters</div>
+  <div *ngIf="showSuccess" class="success-card">
+    <div class="icon">🎉</div>
+    <h4>Registration Successful!</h4>
+    <p>Check the console for the form object.</p>
+  </div>
+
+  <div *ngIf="!showSuccess">
+    <h3>User Registration (Reactive)</h3>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+      <!-- Full Name -->
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" formControlName="fullName" [ngClass]="{ 'is-invalid': submitted && f['fullName'].errors }" placeholder="e.g. John Doe" />
+        <div *ngIf="submitted && f['fullName'].errors" class="invalid-feedback">
+          <div *ngIf="f['fullName'].errors['required']">Full Name is required</div>
+          <div *ngIf="f['fullName'].errors['minlength']">Full Name must be at least 3 characters</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Email -->
-    <div class="form-group">
-      <label>Email</label>
-      <input type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
-      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['required']">Email is required</div>
-        <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+      <!-- Email -->
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" placeholder="e.g. john@example.com" />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">Email is required</div>
+          <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Password -->
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
-      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-        <div *ngIf="f['password'].errors['required']">Password is required</div>
-        <div *ngIf="f['password'].errors['minlength']">Password must be at least {{ f['password'].errors['minlength'].requiredLength }} characters</div>
+      <!-- Password -->
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" placeholder="******" />
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+          <div *ngIf="f['password'].errors['required']">Password is required</div>
+          <div *ngIf="f['password'].errors['minlength']">Password must be at least {{ f['password'].errors['minlength'].requiredLength }} characters</div>
+        </div>
       </div>
-    </div>
 
-    <div class="form-buttons">
-      <button type="submit" class="btn btn-primary">Register</button>
-      <button type="button" (click)="onReset()" class="btn btn-secondary">Reset</button>
-    </div>
-  </form>
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" placeholder="******" />
+        <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+          <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+          <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords must match</div>
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn btn-primary">Register Account</button>
+        <button type="button" (click)="onReset()" class="btn btn-secondary">Reset</button>
+      </div>
+    </form>
+  </div>
 </div>
