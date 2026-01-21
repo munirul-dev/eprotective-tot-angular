@@ -1,0 +1,14 @@
+<div class="error-box">
+  <h4>🤯 Challenge 4: The Impossible State</h4>
+  <p>Open the browser console. Do you see the famous <code>ExpressionChangedAfterItHasBeenCheckedError</code>?</p>
+
+  <p><strong>Scenario:</strong> We are trying to update the <code>status</code> property inside <code>ngAfterViewInit</code>.</p>
+
+  <div class="status">Current Status: {{ status }}</div>
+
+  <p class="hint" style="color: #aaa; margin-top: 15px;">
+    <strong>Why?</strong> Angular verifies that bindings haven't changed after the view is composed.
+    If they do, it throws this error to prevent unstable UI states.<br>
+    <strong>Fix me:</strong> Use <code>setTimeout</code> or <code>ChangeDetectorRef.detectChanges()</code>.
+  </p>
+</div>

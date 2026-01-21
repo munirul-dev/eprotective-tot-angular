@@ -1,0 +1,16 @@
+<div class="race-box">
+  <h4>🏎️ Challenge 5: The Race Condition</h4>
+  <p>Type "A", then immediately "B" into the box. Wait for the results.</p>
+
+  <input type="text" (input)="onSearch($event)" placeholder="Type fast here...">
+
+  <div class="result">Display: {{ result }}</div>
+
+  <p class="hint" style="color: #aaa; margin-top: 15px;">
+    <strong>The Bug:</strong> Sometimes, the first request returns AFTER the second one, overwriting the correct latest result.<br>
+    <strong>Fix me:</strong> Use an RxJS operator that <i>cancels</i> previous pending requests! (Hint: <code>switchMap</code>)
+  </p>
+
+  <hr style="border-color: #444;">
+  <div *ngFor="let log of logs" class="log">{{ log }}</div>
+</div>

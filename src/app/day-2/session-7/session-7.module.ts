@@ -9,6 +9,8 @@ import { DebuggingDashboardComponent } from './debugging/debugging-dashboard/deb
 import { RuntimeErrorComponent } from './debugging/runtime-error/runtime-error.component';
 import { MemoryLeakComponent } from './debugging/memory-leak/memory-leak.component';
 import { SlowComponentComponent } from './debugging/slow-component/slow-component.component';
+import { ExpressionChangedComponent } from './debugging/expression-changed/expression-changed.component';
+import { RaceConditionComponent } from './debugging/race-condition/race-condition.component';
 
 const routes: Routes = [
   { path: '', component: Session7Component }
@@ -21,7 +23,9 @@ const routes: Routes = [
     DebuggingDashboardComponent,
     RuntimeErrorComponent,
     MemoryLeakComponent,
-    SlowComponentComponent
+    SlowComponentComponent,
+    ExpressionChangedComponent,
+    RaceConditionComponent
   ],
   imports: [
     CommonModule,

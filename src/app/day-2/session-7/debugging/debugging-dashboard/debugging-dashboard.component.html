@@ -6,11 +6,15 @@
     <button [class.active]="selectedChallenge === 'runtime'" (click)="selectedChallenge = 'runtime'">The Crash</button>
     <button [class.active]="selectedChallenge === 'memory'" (click)="selectedChallenge = 'memory'">Ghost Timer</button>
     <button [class.active]="selectedChallenge === 'slow'" (click)="selectedChallenge = 'slow'">Slow Motion</button>
+    <button [class.active]="selectedChallenge === 'expression'" (click)="selectedChallenge = 'expression'">Impossible State</button>
+    <button [class.active]="selectedChallenge === 'race'" (click)="selectedChallenge = 'race'">Race Condition</button>
   </div>
 
   <div class="challenge-area">
     <app-runtime-error *ngIf="selectedChallenge === 'runtime'"></app-runtime-error>
     <app-memory-leak *ngIf="selectedChallenge === 'memory'"></app-memory-leak>
     <app-slow-component *ngIf="selectedChallenge === 'slow'"></app-slow-component>
+    <app-expression-changed *ngIf="selectedChallenge === 'expression'"></app-expression-changed>
+    <app-race-condition *ngIf="selectedChallenge === 'race'"></app-race-condition>
   </div>
 </div>
