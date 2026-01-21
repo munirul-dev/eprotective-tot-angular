@@ -1,0 +1,17 @@
+<div class="slow-box">
+  <h4>🐌 Challenge 3: Slow Motion</h4>
+  <p>Type in the box below. Notice how sluggish it feels? 😫</p>
+
+  <input type="text" [(ngModel)]="filterText" placeholder="Type here to trigger change detection...">
+
+  <p><strong>The Problem:</strong> The template calls <code>heavyComputation()</code> for every item on every keypress!</p>
+  <p><strong>The Fix:</strong> Use a Pipe or calculate values in the component only when data changes.</p>
+
+  <div class="list">
+    <div *ngFor="let num of numbers" class="item">
+      <span>Item #{{ num }}</span>
+      <!-- BUG: Calling function in template -->
+      <span class="badge">Value: {{ heavyComputation(num) }}</span>
+    </div>
+  </div>
+</div>

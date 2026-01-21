@@ -1,0 +1,16 @@
+<div class="dashboard-container">
+  <h3>🐞 Debugging Lab</h3>
+  <p>Select a challenge to identify and fix the issue.</p>
+
+  <div class="tabs">
+    <button [class.active]="selectedChallenge === 'runtime'" (click)="selectedChallenge = 'runtime'">The Crash</button>
+    <button [class.active]="selectedChallenge === 'memory'" (click)="selectedChallenge = 'memory'">Ghost Timer</button>
+    <button [class.active]="selectedChallenge === 'slow'" (click)="selectedChallenge = 'slow'">Slow Motion</button>
+  </div>
+
+  <div class="challenge-area">
+    <app-runtime-error *ngIf="selectedChallenge === 'runtime'"></app-runtime-error>
+    <app-memory-leak *ngIf="selectedChallenge === 'memory'"></app-memory-leak>
+    <app-slow-component *ngIf="selectedChallenge === 'slow'"></app-slow-component>
+  </div>
+</div>

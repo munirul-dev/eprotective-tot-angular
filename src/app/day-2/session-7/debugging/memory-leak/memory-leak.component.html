@@ -1,0 +1,16 @@
+<div class="leak-box">
+  <h4>👻 Challenge 2: The Ghost Timer</h4>
+  <p>This component starts a timer. When you switch to a different challenge tab, the component is destroyed, but does the timer stop?</p>
+
+  <p><strong>Instructions:</strong></p>
+  <ol>
+    <li>Open the Browser Console.</li>
+    <li>Switch to "The Crash" or "Slow Motion" tab.</li>
+    <li>Watch the Console logs. Is the timer still ticking? 😱</li>
+    <li>Fix it by implementing <code>ngOnDestroy</code> correctly.</li>
+  </ol>
+
+  <div class="log-area">
+    <div *ngFor="let log of logs">{{ log }}</div>
+  </div>
+</div>

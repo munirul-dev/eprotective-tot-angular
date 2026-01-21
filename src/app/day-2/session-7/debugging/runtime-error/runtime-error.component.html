@@ -1,0 +1,12 @@
+<div class="error-box">
+  <h4>💥 Challenge 1: The Crash</h4>
+  <p>These buttons will crash your app (check the Console!). Can you fix the code to handle these cases safely?</p>
+
+  <button class="btn btn-danger" (click)="throwUndefinedProperty()">Access Property of Undefined</button>
+  <button class="btn btn-danger" (click)="throwNullAccess()">Access Property of Null</button>
+  <button class="btn btn-success" (click)="safeOperation()">Safe Operation (Example Fix)</button>
+
+  <div class="hint">
+    <strong>Hint:</strong> Use safe navigation operator (<code>?.</code>) or simple <code>if</code> checks before accessing properties!
+  </div>
+</div>

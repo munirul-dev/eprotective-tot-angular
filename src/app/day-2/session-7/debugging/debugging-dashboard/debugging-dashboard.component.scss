@@ -1,0 +1,51 @@
+.dashboard-container {
+  padding: 20px;
+  background-color: #1e1e1e; // Dark background
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-top: 20px;
+  color: #e0e0e0; // Light text
+
+  h3 {
+    margin-top: 0;
+    color: #ff5252; // Softer red for dark mode
+  }
+
+  p {
+    color: #b0b0b0; // Ensure paragraph text is visible
+  }
+
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    button {
+      padding: 10px 15px;
+      border: 1px solid #444;
+      background: #2d2d2d;
+      color: #e0e0e0;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #3d3d3d;
+      }
+
+      &.active {
+        background: #d32f2f;
+        color: white;
+        border-color: #d32f2f;
+      }
+    }
+  }
+
+  .challenge-area {
+    background: #252526; // Slightly lighter dark for content area
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    min-height: 200px;
+  }
+}
