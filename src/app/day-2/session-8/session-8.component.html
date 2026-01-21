@@ -1,21 +1,66 @@
 <div class="session-container">
   <h2>{{ title }}</h2>
 
-  <div class="card">
-    <p>This session covers Building for Production, Environments, and Deployment strategies.</p>
+  <div class="intro-card">
+    <p>This session simulates the deployment lifecycle, managing environments, and preparing for production.</p>
   </div>
 
-  <div class="card">
-    <h3>Environment Configuration</h3>
-    <p>Current Environment Variables (Simulated):</p>
-    <pre>{{ envConfig | json }}</pre>
-  </div>
+  <div class="dashboard-grid">
+    <!-- Environment Simulator -->
+    <div class="card env-card">
+      <h3>1. Environment Configuration</h3>
+      <div class="env-controls">
+        <button [class.active]="currentEnv === 'dev'" (click)="setEnv('dev')">Development</button>
+        <button [class.active]="currentEnv === 'staging'" (click)="setEnv('staging')">Staging</button>
+        <button [class.active]="currentEnv === 'prod'" (click)="setEnv('prod')">Production</button>
+      </div>
 
-  <div class="card">
-    <h3>Build Commands</h3>
-    <ul>
-      <li><code>ng build</code>: Default build.</li>
-      <li><code>ng build --configuration production</code>: Production build (Optimization, Minification).</li>
-    </ul>
+      <div class="config-display">
+        <div class="config-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="title">environment.{{currentEnv}}.ts</span>
+        </div>
+        <pre>export const environment = {{ envConfig | json }};</pre>
+      </div>
+    </div>
+
+    <!-- Deployment Checklist -->
+    <div class="card checklist-card">
+      <h3>2. Pre-Deployment Checklist</h3>
+      <div class="progress-bar-container">
+        <div class="progress-bar" [style.width.%]="checklistProgress"></div>
+      </div>
+      <p class="progress-text">{{ checklistProgress }}% Ready</p>
+
+      <ul class="checklist">
+        <li *ngFor="let item of checklistItems">
+          <label>
+            <input type="checkbox" [(ngModel)]="item.checked">
+            <span class="checkmark"></span>
+            {{ item.label }}
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Build Simulator -->
+    <div class="card build-card">
+      <h3>3. Build Process</h3>
+      <p>Simulate a production build to see the steps involved.</p>
+
+      <button class="build-btn" (click)="startBuild()" [disabled]="isBuilding">
+        {{ isBuilding ? 'Building...' : 'Run Production Build' }}
+      </button>
+
+      <div class="terminal">
+        <div class="terminal-header">Terminal</div>
+        <div class="terminal-body">
+          <div *ngFor="let log of buildLogs">> {{ log }}</div>
+          <div *ngIf="isBuilding" class="cursor">_</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
